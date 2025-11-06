@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jalool</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <style>
     :root {
       --orange: #ff6a00;
@@ -47,7 +45,7 @@
       z-index: 10;
     }
 
-    .left-buttons, .right-buttons {
+    .right-buttons {
       display: flex;
       gap: 10px;
       align-items: center;
@@ -70,10 +68,16 @@
       color: var(--orange);
     }
 
-    #langBtn {
-      width: auto;
-      padding: 0 12px;
-      font-size: 0.9rem;
+    /* الشعار */
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #fff;
     }
 
     /* معلومات فوق محرك البحث */
@@ -86,35 +90,6 @@
       font-size: 0.9rem;
       color: #d6d6d6;
       margin-bottom: 10px;
-      opacity: 0.9;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-
-    /* الشعار */
-    .logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 25px;
-      padding: 0 10px;
-      text-align: center;
-    }
-
-    .logo h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .version {
-      background-color: #444;
-      color: #fff;
-      border-radius: 10px;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      margin-top: 8px;
       opacity: 0.9;
     }
 
@@ -145,7 +120,6 @@
       color: #fff;
       font-size: 1rem;
       padding: 0 10px;
-      min-width: 0;
     }
 
     .search-box input::placeholder {
@@ -165,7 +139,6 @@
       justify-content: center;
       border-radius: 8px;
       transition: background-color 0.3s, color 0.3s;
-      flex-shrink: 0;
     }
 
     .search-box button:hover {
@@ -207,8 +180,6 @@
       gap: 25px;
       font-size: 0.9rem;
       color: #ccc;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     .bottom-links a {
@@ -221,52 +192,52 @@
       color: var(--orange);
     }
 
-    /* تحسين العرض على الشاشات الصغيرة */
-    @media (max-width: 600px) {
-      .logo h1 {
-        font-size: 2.2rem;
+    /* 🔸 تنسيق الهاتف */
+    @media (max-width: 768px) {
+      header {
+        justify-content: space-between;
       }
 
-      .search-box {
-        height: 50px;
+      .logo {
+        position: static;
+        margin: 0;
       }
 
-      .search-box button {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+      header .logo h1 {
+        font-size: 1.8rem;
       }
 
-      header button {
-        width: 40px;
-        height: 35px;
+      .desktop-logo {
+        display: none;
       }
 
-      #langBtn {
-        padding: 0 10px;
+      .mobile-logo {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
       }
+    }
 
-      .bottom-links {
-        gap: 15px;
-        font-size: 0.85rem;
+    /* 🔹 للحاسوب */
+    @media (min-width: 769px) {
+      .mobile-logo {
+        display: none;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
+    <h1 class="mobile-logo">Jalool</h1>
     <div class="right-buttons">
       <button title="القائمة"><i class="fa-solid fa-bars"></i></button>
       <button title="تغيير الوضع"><i class="fa-solid fa-moon"></i></button>
     </div>
-    <div class="left-buttons">
-      <button id="langBtn" title="اللغة">EN</button>
-    </div>
   </header>
 
-  <div class="logo">
+  <div class="logo desktop-logo">
     <h1>Jalool</h1>
-    <div class="version">v1.1.0</div>
   </div>
 
   <div class="search-info">
